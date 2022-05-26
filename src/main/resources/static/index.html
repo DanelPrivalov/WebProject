@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:switch = "${user}">
+    <h2 th:case = "null">No users found!</h2>
+    <div th:case = "*">
+        <h2>Buddies</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Login</th>
+                <th>Password</th>
+                <th>Access level</th>
+            <tr>
+            </thead>
+            <tbody>
+            <tr th:each="user : ${user}">
+                <td th:text="${user.firsName}"></td>
+                <td th:text="${user.lastName}"></td>
+                <td th:text="${user.login}"></td>
+                <td th:text="${user.password}"></td>
+                <td th:text="${user.accessLevel}"></td>
+                <td><a th:href="@{user-edit/{id}(id=${user.id)})">Edit</a></td>
+                <td><a th:href="@{user-delite/{id}(id=${user.id)})">Delite</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href = "/buddy-create">Create user</a></p>
+</div>
+</body>
+</html>

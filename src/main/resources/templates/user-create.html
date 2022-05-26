@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<meta charset="UTF-8">
+<title>Title</title>
+</head>
+<body>
+<form action="#" th:action="@{/user-create}" th:object="${user}" method="post">
+    <lable> for = "firstName">First name</lable>
+    <input type="text" th:field="*{firstName}" id = "firstName" placeholder="First Name">
+    <lable> for = "lastName">Last name</lable>
+    <input type="text" th:field="*{lastName}" id = "lastName" placeholder="Last Name">
+    <input type="submit" value="Create User">
+</form>
+</body>
+</html>
